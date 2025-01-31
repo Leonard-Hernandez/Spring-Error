@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import com.leonard.springboot.error.springboot_demo.models.domain.User;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private List<User> users;
 
-    public UserServiceImpl(){
+    public UserServiceImpl() {
         this.users = new ArrayList<>();
         users.add(new User(1L, "Leonard", "Hernandez"));
         users.add(new User(2L, "Lubraska", "Ferreira"));
@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public User findById(Long id) {
         User user = null;
-        for(User u: users){
+        for (User u : users) {
             if (u.getId().equals(id)) {
                 user = u;
                 break;
@@ -38,7 +38,5 @@ public class UserServiceImpl implements UserService{
         System.out.println(user.getName());
         return user;
     }
-
-
 
 }

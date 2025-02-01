@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.leonard.springboot.error.springboot_demo.exceptions.UserNotFoundException;
 import com.leonard.springboot.error.springboot_demo.models.domain.User;
 import com.leonard.springboot.error.springboot_demo.services.UserService;
 
@@ -17,17 +18,16 @@ public class AppController {
     private UserService service;
 
     @GetMapping("/show")
-    public String index(){
-        //int value = 100/0;
+    public String index() {
+        // int value = 100/0;
         int value = Integer.parseInt("1a0");
         System.out.println(value);
         return "ok 200";
     }
 
     @GetMapping("/show/{id}")
-    public User findUserById(@PathVariable(name = "id") Long id){
-
-        return service.findById(id);
-
+    public User findUserById(@PathVariable(name = "id") Long id) {
+        User user = service.findById(id);
+        return user;
     }
 }

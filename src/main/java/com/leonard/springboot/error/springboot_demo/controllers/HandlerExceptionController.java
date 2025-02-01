@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import com.leonard.springboot.error.springboot_demo.exceptions.UserNotFoundException;
 import com.leonard.springboot.error.springboot_demo.models.Error;
 
 @RestControllerAdvice
@@ -56,7 +57,8 @@ public class HandlerExceptionController {
     }
 
     @ExceptionHandler({ NullPointerException.class,
-            HttpMessageNotWritableException.class })
+            HttpMessageNotWritableException.class,
+            UserNotFoundException.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Map<String, String> userNotFoundException(Exception ex) {
 

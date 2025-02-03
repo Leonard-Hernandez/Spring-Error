@@ -1,4 +1,4 @@
-package com.leonard.springboot.error;
+package com.leonard.springboot.error.springboot_demo;
 
 import java.util.ArrayList;
 import java.util.List;

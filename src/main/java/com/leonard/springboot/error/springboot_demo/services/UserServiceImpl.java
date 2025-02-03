@@ -25,14 +25,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<User> findById(Long id) {
-        User user = null;
-        for (User u : users) {
-            if (u.getId().equals(id)) {
-                user = u;
-                break;
-            }
-        }
-        System.out.println(user.getName());
-        return Optional.ofNullable(user);
+        return users.stream().filter(u -> u.getId().equals(id)).findFirst(); 
     }
 }
